@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pna.johan.calculadoracosw.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/textPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:text="123456"
+            android:textSize="50sp"
+            android:textColor="@color/colorDarkGrey"
+            android:gravity="top|right"
+            android:paddingTop="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:text="7"
+                        android:textSize="32sp"
+                        android:onClick="addSeven"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="32sp"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addfour"
+                        android:text="4"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addOne"
+                        android:textSize="32sp"
+                        android:text="1"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addPoint"
+                        android:textSize="32sp"
+                        android:text="@string/point"/>
+
+                </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="32sp"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addEigth"
+                        android:text="8"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="32sp"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addFive"
+                        android:text="5"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addTwo"
+                        android:textSize="32sp"
+                        android:text="2"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addZero"
+                        android:textSize="32sp"
+                        android:text="0"/>
+
+                </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="32sp"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addNine"
+                        android:text="9"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="32sp"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addSix"
+                        android:text="6"/>
+
+
+
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="addThree"
+                        android:textSize="32sp"
+                        android:text="3"/>
+
+
+
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect"
+                        android:onClick="solveOperation"
+                        android:textSize="32sp"
+                        android:text="="/>
+                </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/ripple_effect_dark"
+                        android:textColor="@color/colorAccent"
+                        android:onClick="deleteAll"
+                        android:text="DEL"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect_dark"
+                        android:onClick="operationDiv"
+                        android:text="@string/division"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect_dark"
+                        android:onClick="operationMult"
+                        android:text="@string/multiplication"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect_dark"
+                        android:onClick="operationSubstract"
+                        android:text="@string/minus"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/ripple_effect_dark"
+                        android:onClick="operationAdd"
+                        android:text="@string/plus"/>
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

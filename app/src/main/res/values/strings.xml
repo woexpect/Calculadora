@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Super Calculator</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="multiplication">x</string>
+    <string name="division">÷</string>
+    <string name="point">,</string>
+</resources>
