@@ -4,15 +4,20 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     //Typeface latoFont = Typeface.createFromAsset(this.getAssets(), "Lato.ttf");
     //Object.setTypeface(latoFont);
-
+    //Application Variables
     public TextView cDsiplay;
     public char operation;
+    private boolean isPanelShown;
+    public ViewGroup hiddenPanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,21 +25,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Hide Action Bar
         getSupportActionBar().hide();
-
+        //TextView Element to display into UI
         cDsiplay = (TextView) findViewById(R.id.cdisplay);
     }
 
+    /**
+     * Deletes all data from the view
+     * @param view View of the object that calls the method
+     */
     public void deleteAll(View view) {
         cDsiplay.setText("");
     }
 
+    /**
+     * User eval to solve and dispaly the result of the operation
+     * @param view View of the object that calls the method
+     */
     public void solveOperation(View view) {
         if(cDsiplay.getText() != null || !cDsiplay.getText().equals("")){
-            double res = eval(cDsiplay.getText().toString());
-            cDsiplay.setText(String.valueOf(res));
+            try{
+                double res = eval(cDsiplay.getText().toString());
+                cDsiplay.setText(String.valueOf(res));
+            }catch (Exception e){
+                cDsiplay.setText("ERROR");
+            }
         }
     }
 
+    /**
+     * Lets the user add a numebr or symbol to the display
+     * @param view View of the calling object in the UI
+     */
     public void addNumber(View view) {
         switch (view.getId()){
             case R.id.one:
@@ -79,13 +100,30 @@ public class MainActivity extends AppCompatActivity {
             case R.id.substract:
                 agregarNumero("-");
                 break;
-            case R.id.add:
-                agregarNumero("+");
+            case R.id.sin:
+                agregarNumero("sin");
+                break;
+            case R.id.cos:
+                agregarNumero("cos");
+                break;
+            case R.id.tan:
+                agregarNumero("tan");
+                break;
+            case R.id.sqrt:
+                agregarNumero("sqrt");
+                break;
+            case R.id.pow:
+                agregarNumero("^");
                 break;
         }
     }
 
+    /**
+     * Lets display to user the number he is typing
+     * @param n String qith the character to add to the expression
+     */
     private void agregarNumero(String n) {
+        System.out.println("STRING --> " + n);
         if(cDsiplay.getText().toString() != null || !cDsiplay.getText().toString().equals("")){
             String actualText = cDsiplay.getText().toString();
             char[] toArrayText = actualText.toCharArray();
@@ -100,6 +138,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Evaluating method to solve the calculation given a String
+     * @param str String with the operation
+     * @return result of the operation
+     */
     public static double eval(final String str) {
         return new Object() {
             int pos = -1, ch;
@@ -136,25 +179,25 @@ public class MainActivity extends AppCompatActivity {
             double parseTerm() {
                 double x = parseFactor();
                 for (;;) {
-                    if      (eat('x')) x *= parseFactor(); // multiplication
-                    else if (eat('÷')) x /= parseFactor(); // division
+                    if      (eat('x')) x *= parseFactor();
+                    else if (eat('÷')) x /= parseFactor();
                     else return x;
                 }
             }
 
             double parseFactor() {
-                if (eat('+')) return parseFactor(); // unary plus
-                if (eat('-')) return -parseFactor(); // unary minus
+                if (eat('+')) return parseFactor();
+                if (eat('-')) return -parseFactor();
 
                 double x;
                 int startPos = this.pos;
                 if (eat('(')) { // parentheses
                     x = parseExpression();
                     eat(')');
-                } else if ((ch >= '0' && ch <= '9') || ch == '.') { // numbers
+                } else if ((ch >= '0' && ch <= '9') || ch == '.') {
                     while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
                     x = Double.parseDouble(str.substring(startPos, this.pos));
-                } else if (ch >= 'a' && ch <= 'z') { // functions
+                } else if (ch >= 'a' && ch <= 'z') {
                     while (ch >= 'a' && ch <= 'z') nextChar();
                     String func = str.substring(startPos, this.pos);
                     x = parseFactor();
@@ -167,11 +210,12 @@ public class MainActivity extends AppCompatActivity {
                     throw new RuntimeException("Unexpected: " + (char)ch);
                 }
 
-                if (eat('^')) x = Math.pow(x, parseFactor()); // exponentiation
+                if (eat('^')) x = Math.pow(x, parseFactor());
 
                 System.out.println(x);
                 return x;
             }
         }.parse();
     }
+
 }

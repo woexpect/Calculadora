@@ -13,7 +13,7 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
-        assertEquals(188,5, eval("5*25/2*3+1"));
+        eval("sin(0)*5");
     }
 
     public static double eval(final String str) {
@@ -91,7 +91,7 @@ public class ExampleUnitTest {
 
                 if (eat('^')) x = Math.pow(x, parseFactor()); // exponentiation
 
-                System.out.println(x);
+                System.out.println("respeusta: " + x);
                 return x;
             }
         }.parse();

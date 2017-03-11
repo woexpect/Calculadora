@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">Super Calculator</string>
+    <string name="app_name">PDAM Calculator</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="multiplication">x</string>
     <string name="division">÷</string>
     <string name="point">,</string>
+    <string name="sin">Sin</string>
+    <string name="cos">Cos</string>
+    <string name="tan">Tan</string>
+    <string name="sqrt">√</string>
+    <string name="pow">^</string>
 </resources>
