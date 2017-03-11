@@ -100,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.substract:
                 agregarNumero("-");
                 break;
+            case R.id.add:
+                agregarNumero("+");
+                break;
             case R.id.sin:
                 agregarNumero("sin");
                 break;
